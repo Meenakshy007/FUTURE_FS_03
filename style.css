@@ -1,0 +1,420 @@
+/* Color Palette System & Design Variables */
+:root {
+    --primary-coffee: #6F4E37;     /* Classic Warm Rich Coffee Brown */
+    --primary-dark: #4A3222;       /* Deeper shade for clear active hovers */
+    --accent-cream: #F5EBE6;       /* Soft light tint background contrast */
+    --text-charcoal: #2B2622;     /* High contrast clean readable body font */
+    --text-muted: #6E655F;         /* Balanced soft gray for descriptions */
+    --white: #FFFFFF;
+    --bg-canvas: #FAF7F5;          /* Crisp clean background canvas tone */
+    --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transition-speed: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Global Reset Architecture */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-stack);
+    color: var(--text-charcoal);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Reusable Dynamic UI Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-speed);
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-coffee);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--text-charcoal);
+}
+
+/* Header & Sticky Navbar Execution */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo a {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-charcoal);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo a span {
+    color: var(--primary-coffee);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: var(--transition-speed);
+}
+
+.nav-links a:hover {
+    color: var(--primary-coffee);
+}
+
+/* Hero Section Layout Showcase */
+.hero {
+    background: linear-gradient(rgba(43, 38, 34, 0.75), rgba(43, 38, 34, 0.75)), 
+                url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1800') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin: 0 auto 35px auto;
+    color: var(--accent-cream);
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* Section Text Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--text-charcoal);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* Menu Display Layout Matrix */
+.menu-section {
+    padding: 90px 0;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+    gap: 30px;
+}
+
+.menu-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 24px;
+    background: var(--bg-canvas);
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-coffee);
+    transition: var(--transition-speed);
+}
+
+.menu-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(111, 78, 55, 0.08);
+}
+
+.menu-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: var(--text-charcoal);
+}
+
+.menu-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding-right: 15px;
+}
+
+.menu-card .price {
+    font-weight: 700;
+    color: var(--primary-coffee);
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+/* Story Narrative Layout Grid */
+.about-section {
+    background-color: var(--bg-canvas);
+    padding: 90px 0;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1.2;
+    min-width: 320px;
+}
+
+.about-text h2 {
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.about-text p {
+    margin-bottom: 18px;
+    color: var(--text-muted);
+}
+
+.about-features {
+    flex: 0.8;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feature {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+}
+
+.feature i {
+    color: var(--primary-coffee);
+    font-size: 1.4rem;
+}
+
+/* Structural Interaction Contact Workspace */
+.contact-section {
+    padding: 90px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+}
+
+.info-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.info-item i {
+    color: var(--primary-coffee);
+    font-size: 1.3rem;
+    margin-top: 3px;
+}
+
+.info-item h4 {
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+}
+
+.info-item p {
+    color: var(--text-muted);
+}
+
+.contact-form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #E1DCD8;
+    border-radius: 5px;
+    font-family: var(--font-stack);
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition-speed);
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: var(--primary-coffee);
+    box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.1);
+}
+
+.form-feedback {
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Styled Visual Geolocation Content Box Window */
+.map-placeholder {
+    background: #EFECE9 url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=600') no-repeat center center/cover;
+    border-radius: 8px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.map-overlay-msg {
+    background-color: rgba(255, 255, 255, 0.96);
+    padding: 20px 30px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.map-overlay-msg i {
+    color: var(--primary-coffee);
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.map-overlay-msg p {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Structured Clean Page Footer */
+footer {
+    background-color: var(--text-charcoal);
+    color: var(--accent-cream);
+    padding: 45px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.footer-content p {
+    font-size: 0.95rem;
+    color: #A39992;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: var(--accent-cream);
+    font-size: 1.3rem;
+    transition: var(--transition-speed);
+}
+
+.social-icons a:hover {
+    color: var(--primary-coffee);
+    transform: translateY(-2px);
+}
+
+/* Smart Adaptive Responsive Breakpoints */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    .menu-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
